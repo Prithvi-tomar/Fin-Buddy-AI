@@ -63,6 +63,22 @@ service cloud.firestore {
 8. Test Firebase rules with two different users.
 9. Deploy to Firebase Hosting, Netlify, or Vercel.
 
+## Firebase Hosting
+
+The project now includes Firebase Hosting configuration. To use it:
+
+```bash
+npm install
+npx firebase login
+npm run deploy
+```
+
+For local preview using the Firebase Hosting emulator:
+
+```bash
+npm start
+```
+
 ## Useful Checks
 
 ```bash

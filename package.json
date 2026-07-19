@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "start": "node server.js",
-    "check": "node --check js/auth.js && node --check js/dashboard.js && node --check js/firestore.js && node --check server.js"
+    "start": "npx firebase emulators:start --only hosting",
+    "deploy": "npx firebase deploy --only hosting --project finbuddy-ai-347f8",
+    "check": "node --check js/auth.js && node --check js/dashboard.js && node --check js/firestore.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
@@ -18,12 +19,12 @@
   "name": "fin-buddy-ai",
   "version": "1.0.0",
   "description": "FinBuddy AI is a personal finance dashboard that uses Firebase Authentication and Firestore to help users track income, expenses, balance, and financial activity.",
-  "main": "server.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
+    "firebase-tools": "^13.30.0",
     "nodemon": "^3.1.14"
   }
 }
