@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | FinBuddy AI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="stylesheet" href="css/dashboard.css">
+
+</head>
+
+<body .class="auth-checking">
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>💰 FinBuddy AI</h2>
+
+        <ul>
+
+            <li class="active" data-view="dashboard">🏠 Dashboard</li>
+
+            <li data-view="transactions">💵 Transactions</li>
+
+            <li data-view="analytics">📊 Analytics</li>
+
+            <li data-view="ai">🤖 AI Insights</li>
+
+            <li data-view="settings">⚙ Settings</li>
+
+            <li id="logout">🚪 Logout</li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <header>
+
+            <h1>Dashboard</h1>
+
+            <button id="addTransactionBtn">
+                + Add Transaction
+            </button>
+
+        </header>
+
+        <!-- Cards -->
+
+        <section class="cards view-section" data-section="dashboard">
+
+            <div class="card income">
+
+                <h3>Total Income</h3>
+
+                <h2 id="income">₹0</h2>
+
+            </div>
+
+            <div class="card expense">
+
+                <h3>Total Expense</h3>
+
+                <h2 id="expense">₹0</h2>
+
+            </div>
+
+            <div class="card balance">
+
+                <h3>Balance</h3>
+
+                <h2 id="balance">₹0</h2>
+
+            </div>
+
+            <div class="card budget">
+
+                <h3>Monthly Budget</h3>
+
+                <h2 id="budget">₹0</h2>
+
+            </div>
+
+        </section>
+
+        <!-- Charts -->
+
+      <section class="charts view-section" data-section="dashboard analytics">
+
+    <div class="chart-box">
+
+        <canvas id="expenseChart"></canvas>
+
+    </div>
+
+    <div class="chart-box">
+
+        <canvas id="incomeChart"></canvas>
+
+    </div>
+
+</section>
+
+<section class="charts view-section" data-section="dashboard analytics">
+
+    <div class="chart-box full-width">
+
+        <canvas id="balanceChart"></canvas>
+
+    </div>
+
+</section>
+        <!-- Transactions -->
+
+        <section class="transactions view-section" data-section="dashboard transactions">
+
+            <h2>Recent Transactions</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="transactionTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- AI -->
+
+        <section class="ai-box view-section" data-section="ai">
+
+            <h2>AI Financial Insights</h2>
+
+            <button id="generateInsightBtn" type="button">
+
+                Generate AI Report
+
+            </button>
+
+            <div id="aiResult">
+
+                AI recommendations will appear here. Connected AI is used when the server has an API key; otherwise smart local insights are used.
+
+            </div>
+
+            <div class="chat-box">
+
+                <h3>Finance Chatbot</h3>
+
+                <div id="chatMessages" class="chat-messages">
+
+                    <div class="bot-message">
+                        Ask me about your income, expenses, balance, budget, or saving tips.
+                    </div>
+
+                </div>
+
+                <form id="chatForm" class="chat-form">
+
+                    <input
+                    type="text"
+                    id="chatInput"
+                    placeholder="Ask about your money..."
+                    autocomplete="off">
+
+                    <button type="submit">
+                        Send
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+        <!-- Settings -->
+
+        <section class="settings-box view-section" data-section="settings">
+
+            <h2>Settings</h2>
+
+            <div class="settings-grid">
+
+                <label>
+                    Monthly Budget
+                    <input type="number" id="monthlyBudgetInput" placeholder="Enter monthly budget">
+                </label>
+
+                <button id="saveBudgetBtn" type="button">
+                    Save Budget
+                </button>
+
+            </div>
+
+        </section>
+        <!-- Transaction Modal -->
+
+<div class="modal" id="transactionModal">
+
+<div class="modal-content">
+
+<span class="close">&times;</span>
+
+<h2>Add Transaction</h2>
+
+<form id="transactionForm">
+
+<input
+type="number"
+id="amount"
+placeholder="Amount"
+required>
+
+<select id="category">
+
+<option>Food</option>
+
+<option>Travel</option>
+
+<option>Shopping</option>
+
+<option>Salary</option>
+
+<option>Bills</option>
+
+<option>Medical</option>
+
+<option>Entertainment</option>
+
+</select>
+
+<select id="type">
+
+<option>Income</option>
+
+<option>Expense</option>
+
+</select>
+
+<input
+type="date"
+id="date"
+required>
+
+<input
+type="text"
+id="description"
+placeholder="Description">
+
+<button type="submit">
+
+Save Transaction
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+    </main>
+
+</div>
+
+<script src="js/charts.js"></script>
+
+<script type="module" src="js/dashboard.js"></script>
+
+</body>
+</html>
